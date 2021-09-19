@@ -1,12 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { List } from './components/list/list';
+import { Message } from './types/chat';
 
 function App() {
+  const items:Message[] = [{sender:'zhangsan',content:'hello',time:'2021-09-01'}];
+  const itemRenderer = (item:Message)=>{
+    return <div className={'item-container'}>
+      <div className='header'>{item.sender}</div>
+      {item.content}
+      <div className='footer'>{item.time}</div>
+    </div>
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -19,6 +26,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <List data={items} itemRenderer={itemRenderer}></List>
     </div>
   );
 }
