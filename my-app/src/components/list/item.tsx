@@ -5,7 +5,5 @@ interface ListItemProps<T> {
 }
 export function ListItem<T>(props:ListItemProps<T>){
   const {content,className} = props;
-  return <div className={className}>
-    {content}
-    </div>
+  return <div className={className}>{content}</div>
 }

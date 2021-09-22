@@ -1,14 +1,15 @@
 import './App.css';
 import { List } from './components/list/list';
 import { Message } from './types/chat';
+import styles from './App.module.less';
 
 function App() {
   const items:Message[] = [{sender:'zhangsan',content:'hello',time:'2021-09-01'}];
   const itemRenderer = (item:Message)=>{
-    return <div className={'item-container'}>
-      <div className='header'>{item.sender}</div>
+    return <div className={styles.item}>
+      <div className={styles.messageHeader}>{item.sender}</div>
       {item.content}
-      <div className='footer'>{item.time}</div>
+      <div className={styles.messageFooter}>{item.time}</div>
     </div>
   }
   return (
